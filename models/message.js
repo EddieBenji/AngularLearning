@@ -8,7 +8,7 @@ var Schema = mongoose.Schema;
 //This is the schema I'm going to create (something like the blueprint of the database you're about to create):
 var schema = new Schema({
     content: {type: String, required: true},
-    user: {type: Schema.Types.ObjectId}
+    user: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
 //now, the models:
