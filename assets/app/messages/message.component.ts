@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, Output, EventEmitter} from "@angular/core";
 import {Message} from "./message.model";
 
 @Component({
@@ -25,4 +25,11 @@ export class MessageComponent {
     //You can write an alias, for example: @Input('inputMessage')
     //and inside the app.component.html you'll have to put this same alias in the left side of the expr.
     @Input() message: Message;
+
+    @Output() editClicked = new EventEmitter<string>();
+
+    onEdit() {
+        // alert('it worked');
+        this.editClicked.emit('A new value');
+    }
 }
