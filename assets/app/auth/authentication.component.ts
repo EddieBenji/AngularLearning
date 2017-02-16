@@ -5,12 +5,16 @@ import {Component} from "@angular/core";
         <header class="row spacing">
             <nav class="col-md-8 col-md-offset-2">
                 <ul class="nav nat-tabs">
-                    <li style="display: inline-block;"><a > Signup</a></li>
-                    <li style="display: inline-block;"><a > Signin</a></li>
-                    <li style="display: inline-block;"><a > Logout</a></li>
+                    <li routerLinkActive="active" style="display:inline-block;"><a [routerLink]="['signup']"> Signup</a></li>
+                    <li routerLinkActive="active" style="display:inline-block;"><a [routerLink]="['signin']"> Signin</a></li>
+                    <li routerLinkActive="active" style="display:inline-block;"><a [routerLink]="['logout']"> Logout</a></li>
                 </ul>
             </nav>
         </header>
+        
+        <div class="row spacing">
+            <router-outlet></router-outlet>
+        </div>
 `
 })
 export class AuthenticationComponent{
