@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter} from "@angular/core";
 import {Message} from "./message.model";
+import {MessageService} from "./message.service";
 
 @Component({
     selector: 'app-message', //will insert a selector like this: <app-message>....</app-message>
@@ -31,5 +32,12 @@ export class MessageComponent {
     onEdit() {
         // alert('it worked');
         this.editClicked.emit('A new value');
+    }
+    constructor(private messageService: MessageService){
+
+    }
+
+    onDelete(){
+        this.messageService.deleteMessage(this.message);
     }
 }
