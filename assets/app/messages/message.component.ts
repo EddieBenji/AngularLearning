@@ -31,11 +31,14 @@ export class MessageComponent {
     onEdit() {
         this.messageService.editMessage(this.message);
     }
-    constructor(private messageService: MessageService){
+
+    constructor(private messageService: MessageService) {
 
     }
 
-    onDelete(){
-        this.messageService.deleteMessage(this.message);
+    onDelete() {
+        this.messageService.deleteMessage(this.message).subscribe(
+            result => console.log(result)
+        );
     }
 }
