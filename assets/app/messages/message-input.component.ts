@@ -18,8 +18,11 @@ export class MessageInputComponent implements OnInit {
         if (this.message) {
             //Edit
             this.message.content = form.value.content;
+            this.messageService.updateMessage(this.message).subscribe(
+                // Param => how to use it!
+                result => console.log(result)
+            );
             this.message = null;
-            this.messageService.updateMessage(this.message);
         } else {
             //create
             const message = new Message(form.value.content, 'Lalo');
