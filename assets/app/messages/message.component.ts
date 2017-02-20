@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {Message} from "./message.model";
 import {MessageService} from "./message.service";
 
@@ -27,11 +27,9 @@ export class MessageComponent {
     //and inside the app.component.html you'll have to put this same alias in the left side of the expr.
     @Input() message: Message;
 
-    @Output() editClicked = new EventEmitter<string>();
 
     onEdit() {
-        // alert('it worked');
-        this.editClicked.emit('A new value');
+        this.messageService.editMessage(this.message);
     }
     constructor(private messageService: MessageService){
 

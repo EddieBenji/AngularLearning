@@ -2,12 +2,13 @@
     <form (ngSubmit)="onSubmit(form)" #form="ngForm">
         <div class="form-group">
             <label for="content">Content</label>
-            <!--when we want to link an html element to angular, we should write it like this: #{name of the id}-->
             <input type="text" id="content" class="form-control"
-                   ngModel
+                   [ngModel]="message?.content"
                    name="content"
                    required>
         </div>
+        <!--when we want to link an html element to angular, we should write it like this: #{name of the id}-->
+        <button type="button" class="btn btn-danger" (click)="onClear(form)">Clear</button>
         <button class="btn btn-primary"> Save</button>
     </form>
 
