@@ -8,6 +8,8 @@ a chat-room with your self, where every message is saved in mongo and then retri
 move the package to a folder where you can access.
     * Add the route of the folder to your path. Example:
         * ![Path to mongo](https://github.com/EddieBenji/AngularLearning/blob/master/markdown/images/MONGO_PATH.png "Path to mongo")
+        * if you still can't run mongo, visit  [Mongo's manual](https://docs.mongodb.com/v3.0/tutorial/install-mongodb-on-os-x/#run-mongodb "Mongo's manual")
+         in section **_Run MongoDB_**
     * Start mongo by typing *mongo* in your console.
         * In addition, you can start the mongo client like this: *mongod* (this allows you to access all your databases and
         perform queries).
