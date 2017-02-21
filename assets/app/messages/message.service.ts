@@ -32,7 +32,9 @@ export class MessageService {
         return this.http.post(this.getBaseUrl() + this.getToken(), body, {headers: headers})
             .map((response: Response) => {
                 const result = response.json();
-                const message = new Message(result.obj.content, 'Dummy', result.obj._id, null);
+                const message = new Message(
+                    result.obj.content, result.obj.user.firstName, result.obj._id, result.obj.user._id
+                );
                 this.messages.push(message);
                 return message;
             })
@@ -47,7 +49,14 @@ export class MessageService {
                 //Let's transform the message from the back to the front
                 let transformedMessages: Message[] = [];
                 for (let message of messages) {
-                    transformedMessages.push(new Message(message.content, 'Dummy', message._id, null));
+                    transformedMessages.push(
+                        new Message(
+                            message.content,
+                            message.user.firstName,
+                            message._id,
+                            message.user._id
+                        )
+                    );
                 }
                 this.messages = transformedMessages;
                 return transformedMessages;
