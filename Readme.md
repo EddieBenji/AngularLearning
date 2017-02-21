@@ -6,7 +6,7 @@ a chat-room with your self, where every message is saved in mongo and then retri
 1. Clone (or download) this repo.
 2. Download Mongo. Go to [Mongo's homepage](https://www.mongodb.com/ "Mongo's Homepage") and download the package. Once done that,
 move the package to a folder where you can access.
-    * Add the route of the folder to you path. Example:
+    * Add the route of the folder to your path. Example:
         * ![Path to mongo](https://github.com/EddieBenji/AngularLearning/blob/master/markdown/images/MONGO_PATH.png "Path to mongo")
     * Start mongo by typing *mongo* in your console.
         * In addition, you can start the mongo client like this: *mongod* (this allows you to access all your databases and
