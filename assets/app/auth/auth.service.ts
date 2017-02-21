@@ -4,11 +4,12 @@ import 'rxjs/Rx';
 import {Observable} from "rxjs";
 
 import {User} from "./user.model";
+import {ErrorService} from "../errors/error.service";
 
 //Whit this line, this service is able to be injected the http object.
 @Injectable()
 export class AuthService {
-    constructor(private http: Http) {
+    constructor(private http: Http, private errorService: ErrorService) {
 
     }
 
@@ -22,7 +23,10 @@ export class AuthService {
         //Remember that .map is called after the backend responds!!
             .map((response: Response) => response.json())
             //If any error, this is how is cached:
-            .catch((error: Response) => Observable.throw(error.json()));
+            .catch((error: Response) => {
+                this.errorService.handleError(error.json());
+                return Observable.throw(error.json())
+            });
     }
 
     signin(user: User) {
@@ -35,7 +39,10 @@ export class AuthService {
         //Remember that .map is called after the backend responds!!
             .map((response: Response) => response.json())
             //If any error, this is how is cached:
-            .catch((error: Response) => Observable.throw(error.json()));
+            .catch((error: Response) => {
+                this.errorService.handleError(error.json());
+                return Observable.throw(error.json())
+            });
     }
 
     logout() {
