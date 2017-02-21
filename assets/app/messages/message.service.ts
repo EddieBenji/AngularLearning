@@ -14,11 +14,11 @@ export class MessageService {
     constructor(private http: Http) {
     }
 
-    getBaseUrl() {
+    private getBaseUrl() {
         return 'http://localhost:3000/message';
     }
 
-    getToken() {
+    private getToken() {
         const token = localStorage.getItem('token');
         return token ? '?token=' + token : '';
     }
@@ -44,7 +44,7 @@ export class MessageService {
         return this.http.get(this.getBaseUrl())
             .map((response: Response) => {
                 const messages = response.json().obj;
-                //Let's transform the mssage from the back to the front
+                //Let's transform the message from the back to the front
                 let transformedMessages: Message[] = [];
                 for (let message of messages) {
                     transformedMessages.push(new Message(message.content, 'Dummy', message._id, null));
@@ -64,7 +64,7 @@ export class MessageService {
         const headers = new Headers({
             'Content-Type': 'application/json'
         });
-        return this.http.patch(this.getBaseUrl() + message.messageId + this.getToken(), body, {headers: headers})
+        return this.http.patch(this.getBaseUrl() + '/' + message.messageId + this.getToken(), body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
