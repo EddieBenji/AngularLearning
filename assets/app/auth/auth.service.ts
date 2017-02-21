@@ -24,4 +24,17 @@ export class AuthService {
             //If any error, this is how is cached:
             .catch((error: Response) => Observable.throw(error.json()));
     }
+
+    signin(user: User) {
+        const body = JSON.stringify(user);
+        const headers = new Headers({'Content-Type': 'application/json'});
+
+        //remember that http.method(), returns an observable, it is not making the request yet!
+        //that's why we return the observable.
+        return this.http.post('http://localhost:3000/user/signin', body, {headers: headers})
+        //Remember that .map is called after the backend responds!!
+            .map((response: Response) => response.json())
+            //If any error, this is how is cached:
+            .catch((error: Response) => Observable.throw(error.json()));
+    }
 }

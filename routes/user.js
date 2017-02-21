@@ -26,8 +26,7 @@ router.post('/', function (req, res, next) {
     });
 });
 
-router.post('/signin', function (err, res, next) {
-
+router.post('/signin', function (req, res, next) {
     User.findOne({email: req.body.email}, function (err, user) {
         if (err) {
             return res.status(500).json({
@@ -35,14 +34,7 @@ router.post('/signin', function (err, res, next) {
                 error: err
             });
         }
-        if (!user) {
-            return res.status(401).json({
-                title: 'Login failed',
-                error: {message: 'Invalid login credentials'}
-            });
-        }
-        if (!bcrypt.compareSync(req.body.password, user.password)) {
-            //is not valid
+        if (!user || !bcrypt.compareSync(req.body.password, user.password)) {
             return res.status(401).json({
                 title: 'Login failed',
                 error: {message: 'Invalid login credentials'}
