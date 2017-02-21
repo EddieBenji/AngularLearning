@@ -10,8 +10,8 @@ move the package to a folder where you can access.
         * ![Path to mongo](https://github.com/EddieBenji/AngularLearning/blob/master/markdown/images/MONGO_PATH.png "Path to mongo")
         * if you still can't run mongo, visit  [Mongo's manual](https://docs.mongodb.com/v3.0/tutorial/install-mongodb-on-os-x/#run-mongodb "Mongo's manual")
          in section **_Run MongoDB_**
-    * Start mongo by typing *mongo* in your console.
-        * In addition, you can start the mongo client like this: *mongod* (this allows you to access all your databases and
+    * Start mongo by typing **mongod** in your console.
+        * In addition, you can start the mongo client like this: **mongo** (this allows you to access all your databases and
         perform queries).
 3. Go to  [Node's homepage](https://nodejs.org/en/ "Node's Homepage") and download the **CURRENT** version of Node.
     * Once you've download node, go to the root folder of this project. Then hit: *npm install*
