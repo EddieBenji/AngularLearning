@@ -37,4 +37,12 @@ export class AuthService {
             //If any error, this is how is cached:
             .catch((error: Response) => Observable.throw(error.json()));
     }
+
+    logout() {
+        localStorage.clear();
+    }
+
+    isLoggedIn() {
+        return localStorage.getItem('token') !== null;
+    }
 }
