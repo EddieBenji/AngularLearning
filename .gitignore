@@ -44,6 +44,4 @@ fabric.properties
 .idea/
 node_modules/
 
-npm-debug.log
-public/js/app/bundle.js
 public/js/
