@@ -37,6 +37,8 @@ export class MessageInputComponent implements OnInit {
     }
 
     ngOnInit() {
+        //Starts listening if the messageIsEdit object has been changed.
+        //The .subscribe call has to do with the http call, not with listening to the messageIsEdit object.
         this.messageService.messageIsEdit.subscribe(
             (message: Message) => this.message = message
         );

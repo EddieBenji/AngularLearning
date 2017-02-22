@@ -29,6 +29,7 @@ export class MessageComponent {
 
 
     onEdit() {
+        //In here we'll send the message to the message service, in order to edit it.
         this.messageService.editMessage(this.message);
     }
 

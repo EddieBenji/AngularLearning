@@ -72,6 +72,9 @@ export class MessageService {
     }
 
     editMessage(message: Message) {
+        //Because we want to edit the message from the input component, we have to delegate the call to that component
+        //That's why the message input component has to subscribe to the event of the messageIsEdit object
+        //on the ngOnInit() method, because it has to listen always if any change has happened.
         this.messageIsEdit.emit(message);
     }
 
