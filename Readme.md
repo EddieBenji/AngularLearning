@@ -19,3 +19,4 @@ move the package to a folder where you can access.
 4. Go to the root folder of this project, then:
     * Run *npm run build* to run the development build script => Keep this process running! It recompiles your files upon changes.
     * Run *npm start* in a new command line/ terminal window => Keep this process running as well, it's your NodeJS server.
+5. Open a browser and go to:  http://localhost:3000/messages
